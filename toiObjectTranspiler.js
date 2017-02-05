@@ -10,11 +10,11 @@ function transpileObject (target, schema, getTranspiler) {
         return target;
     }
 
-    if (typeChecker.isPlainObject(schema)) {
-        schema = schema;
-    } else if (toiTypeChecker.isToiObject(schema)) {
+    if (toiTypeChecker.isToiObject(schema)) {
         schema = schema.getChildSchema();
-    } else {
+    }
+
+    if (!typeChecker.isPlainObject(schema)) {
         return target;
     }
 

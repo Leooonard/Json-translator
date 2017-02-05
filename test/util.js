@@ -16,7 +16,7 @@ function getFunctionName (func) {
 
 function caseExecutor (caseFunc) {
     let caseName = getFunctionName(caseFunc);
-    
+
     try {
         let caseInfo = caseFunc();
         let schema = caseInfo.schema;
@@ -29,6 +29,7 @@ function caseExecutor (caseFunc) {
         console.log(`${caseName} pass`);
     } catch (e) {
         console.log(`${caseName} fail. reason is :\n${e}`);
+        console.log(e.stack);
     }
 }
 

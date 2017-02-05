@@ -160,5 +160,133 @@ function case7 () {
             b: 2
         }
     ];
-    let schema = Toi
+    let schema = Toi.array(null, {
+        a: 'b'
+    });
+    let resultShouldBe = [
+        {
+            b: 1
+        },
+        {
+            b: 2
+        }
+    ];
+
+    return {source, schema, resultShouldBe};
 }
+
+caseExecutor(case7);
+
+function case8 () {
+    let source = [
+        {
+            a: 1
+        },
+        {
+            b: 2
+        }
+    ];
+    let schema = Toi.array(null, {
+        a: 'b'
+    }).indexOf(1, {
+        b: 'c'
+    });
+    let resultShouldBe = [
+        {
+            b: 1
+        },
+        {
+            c: 2
+        }
+    ];
+
+    return {source, schema, resultShouldBe};
+}
+
+caseExecutor(case8);
+
+function case9 () {
+    let source = [
+        {
+            a: 1
+        },
+        {
+            b: 2
+        },
+        {
+            c: 3
+        }
+    ];
+    let schema = Toi.array(null, {
+        a: 'b'
+    });
+    let resultShouldBe = [
+        {
+            b: 1
+        },
+        {
+            b: 2
+        },
+        {
+            c: 3
+        }
+    ];
+
+    return {source, schema, resultShouldBe};
+}
+
+caseExecutor(case9);
+
+function case10 () {
+    let source = [
+        {
+            a: 1
+        },
+        {
+            b: 2
+        }
+    ];
+    let schema = Toi.array(null, [
+        {
+            a: 'b'
+        }
+    ]);
+    let resultShouldBe = [
+        {
+            a: 1
+        },
+        {
+            b: 2
+        }
+    ];
+
+    return {source, schema, resultShouldBe};
+}
+
+caseExecutor(case10);
+
+function case11 () {
+    let source = [
+        {
+            a: 1
+        },
+        {
+            b: 2
+        }
+    ];
+    let schema = Toi.array(null, {
+        c: 'd'
+    });
+    let resultShouldBe = [
+        {
+            a: 1
+        },
+        {
+            b: 2
+        }
+    ];
+
+    return {source, schema, resultShouldBe};
+}
+
+caseExecutor(case11);

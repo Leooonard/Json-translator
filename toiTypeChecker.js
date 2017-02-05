@@ -4,11 +4,19 @@ let ToiArray = require('./toiArray.js');
 let ToiObject = require('./toiObject.js');
 
 function isToiArray (toiArray) {
-    return Object.getPrototypeOf(toiArray) === ToiArray;
+    if (toiArray === null || toiArray === undefined) {
+        return false;
+    }
+
+    return Object.getPrototypeOf(toiArray) === ToiArray.prototype;
 }
 
 function isToiObject (toiObject) {
-    return Object.getPrototypeOf(toiObject) === ToiObject;
+    if (toiObject === null || toiObject === undefined) {
+        return false;
+    }
+
+    return Object.getPrototypeOf(toiObject) === ToiObject.prototype;
 }
 
 exports.isToiArray = isToiArray;
